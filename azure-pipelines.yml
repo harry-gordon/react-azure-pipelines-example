@@ -22,11 +22,9 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: |
-      $(System.DefaultWorkingDirectory)/build
+    SourceFolder: '$(System.DefaultWorkingDirectory)/**/build'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/build'
-  displayName: 'Copy SERVER files to artifact directory'
+  displayName: 'Copy build to artifact directory'
 
 - task: PublishBuildArtifacts@1
   inputs:
